@@ -1,75 +1,49 @@
-# React + TypeScript + Vite
+# Sneakers Shop — Интернет-магазин беговых кроссовок
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современный интернет-магазин беговой обуви на React + TypeScript. Полноценное SPA-приложение с корзиной, избранным, фильтрацией, бесконечным скроллом.
 
-Currently, two official plugins are available:
+##  Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Каталог товаров** с карточками кроссовок (бренд, название, цена, фото, назначение)
+- **Фильтрация** по бренду, назначению (гоночные, для кроссов, для темпов, универсальные)
+- **Сортировка** по цене (по возрастанию/убыванию)
+- **Поиск** по названию и бренду
+- **Выбор размера и цвета** с динамическим обновлением доступности
+- **Корзина** с изменением количества, удалением товаров и подсчетом общей суммы
+- **Избранное** для сохранения понравившихся моделей
+- **Бесконечный скролл** (Infinite Scroll) — подгрузка товаров при прокрутке
+- **Галерея клиентов** с фото кроссовок на ногах
+- **Адаптивный дизайн** — от мобильных (320px) до десктопов (1920px+)
+- **Быстрая навигация** между страницами (React Router)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Технологии
 
-## Expanding the ESLint configuration
+### Frontend
+- **React 18** — функциональные компоненты, хуки
+- **TypeScript** — строгая типизация, интерфейсы Product, ProductColor, FilterValues
+- **React Router v6** — клиентская навигация (BrowserRouter, Routes, Route)
+- **Context API** — управление глобальным состоянием (CartContext, FavoritesContext)
+- **Vite** — быстрая сборка и hot module replacement
+- **CSS3** — Flexbox, Grid, CSS-переменные, адаптивная вёрстка
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Backend & DevOps
+- **GitHub Actions** — CI/CD pipeline (сборка, тестирование, деплой)
+- **GitHub Pages** — хостинг статического сайта
+- **Node.js 20** — среда выполнения
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Инструменты
+- **ESLint** — линтинг кода
+- **Prettier** — форматирование
+- **Git** — система контроля версий
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Lighthouse
+- **Performance**: 100
+- **Accessibility**: 88
+- **Best Practices**: 100
+- **SEO**: 91 (Desktop)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 
-```
+## Зачем это всё
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Проект создан для портфолио frontend-разработчика. Работа с React + TypeScript, Context API, React Router, адаптивная вёрстка, CI/CD через GitHub Actions и создание полноценного SPA-приложения.
