@@ -5,6 +5,7 @@ import { Filters } from '../../components/Filters/Filters';
 import { Sort } from '../../components/Sort/Sort';
 import { products } from '../../data/products';
 import type { FilterValues } from '../../components/Filters/types';
+import { MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from '../../constants';
 import './Catalog.css';
 
 const ITEMS_PER_PAGE = 8;
@@ -55,8 +56,10 @@ const matchesBrandFromUrl = brandFromUrl
           const colorId = typeof c === 'string' ? c : c.id;
           return filters.colors.includes(colorId);
         }));
-      const matchesPrice = product.price >= filters.priceRange.min &&
-        product.price <= (filters.priceRange.max || 1000000);
+        const matchesPrice = 
+  product.price >= MIN_PRODUCT_PRICE && 
+  product.price <= (filters.priceRange.max || MAX_PRODUCT_PRICE);
+
 
       return matchesSearch  && matchesBrand && matchesBrandFromUrl && matchesPurpose && matchesSize && matchesColor && matchesPrice;
     });

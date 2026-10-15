@@ -25,7 +25,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    
+
     intervalRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
     }, 500);
@@ -48,7 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   }, []);
 
   return (
-    <div 
+    <div
       className="product-card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -56,26 +56,25 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     >
 
       <div className="product-card__image-wrapper">
-        <img 
-          src={product.images[currentImageIndex]} 
+        <img
+          src={product.images[currentImageIndex]}
           alt={`Кроссовки ${product.brand} ${product.name}`}
           className="product-card__image"
         />
-        
+
 
         <div className="product-card__slider-indicator">
           {product.images.map((_, index) => (
-            <div 
+            <div
               key={index}
-              className={`product-card__slider-line ${
-                index === currentImageIndex ? 'active' : ''
-              }`}
+              className={`product-card__slider-line ${index === currentImageIndex ? 'active' : ''
+                }`}
             />
           ))}
         </div>
 
 
-        <button 
+        <button
           className={`product-card__favorite ${isFavorite(product.id) ? 'active' : ''}`}
           onClick={(e) => {
             e.stopPropagation();
@@ -84,7 +83,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           aria-label="Добавить в избранное"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill={isFavorite(product.id) ? '#e74c3c' : 'none'} stroke="currentColor" strokeWidth="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
         </button>
       </div>
@@ -93,21 +92,21 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       <div className="product-card__info">
 
         <div className="product-card__brand">{product.brand}</div>
-        
+
 
         <div className="product-card__name">
           Кроссовки {product.brand} {product.name}
         </div>
-        
+
 
         <div className="product-card__purpose">
           {product.purpose.map((p) => (
-            <span 
-              key={p} 
+            <span
+              key={p}
               className="product-card__purpose-item"
               style={{ color: purposeColors[p] || '#666' }}
             >
-              <span 
+              <span
                 className="product-card__purpose-marker"
                 style={{ backgroundColor: purposeColors[p] || '#666' }}
               />
@@ -115,10 +114,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </span>
           ))}
         </div>
-        
 
-        <div className="product-card__price">
-          {product.price.toLocaleString()} р
+
+        <div className="product-card__price"
+        data-testid="product-price"
+        >
+          {`${product.price.toLocaleString('ru-RU')} р`}
         </div>
       </div>
     </div>
