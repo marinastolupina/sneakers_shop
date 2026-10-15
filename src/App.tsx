@@ -12,9 +12,9 @@ import { Checkout } from './pages/Checkout/Checkout';
 function App() {
   return (
     <>
+  <HashRouter>
       <Header />
       <main className="main-content">
-        <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
@@ -24,9 +24,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
 
         </Routes>
-        </HashRouter>
       </main>
       <Footer />
+    </HashRouter>
     </>
   );
 }
