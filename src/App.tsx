@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Home } from './pages/Home/Home';
@@ -14,6 +14,7 @@ function App() {
     <>
       <Header />
       <main className="main-content">
+        <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
@@ -23,6 +24,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
 
         </Routes>
+        </HashRouter>
       </main>
       <Footer />
     </>

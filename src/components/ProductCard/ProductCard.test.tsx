@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { ProductCard } from './ProductCard'
 import { FavoritesProvider } from '../../context/FavoritesContext'
 import { describe, it, expect } from 'vitest'
@@ -12,11 +12,11 @@ describe('ProductCard', () => {
       it(`корректно отображает данные для: ${product.brand} ${product.name}`, () => {
         
         render(
-          <BrowserRouter>
+          <HashRouter>
             <FavoritesProvider>
               <ProductCard product={product} />
             </FavoritesProvider>
-          </BrowserRouter>
+          </HashRouter>
         )
 
         // 1. Check brand and name
